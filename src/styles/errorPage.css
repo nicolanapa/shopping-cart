@@ -11,8 +11,8 @@ main {
 	align-items: center;
     margin-top: 15%;
 	padding: 60px 30px;
-	background-color: rgb(246, 250, 255);
-	border-radius: 20px;
+	background-color: rgb(227, 245, 255);
+	border-radius: 7.5px;
 }
 
 .error-container > h2 {
