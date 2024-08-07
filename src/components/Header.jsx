@@ -12,7 +12,7 @@ function Header() {
 					<h2>
 						<Link to="shop">Shop</Link>
 					</h2>
-					<Link to="cart">
+					<Link to="shop/cart">
 						<img src="./cart.svg" alt="Cart" />
 					</Link>
 				</section>
