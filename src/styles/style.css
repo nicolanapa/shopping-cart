@@ -33,6 +33,13 @@ a:visited {
 	font-size: calc(1.05rem + 6px);
 }
 
+.header-shop {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin-top: 2.5px;
+}
+
 #cart-icon {
 	margin-top: 5px;
 	padding: 5px;
