@@ -2,23 +2,14 @@ import React from "react";
 import { describe, it, expect } from "vitest";
 import { getAllByRole, render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import { BrowserRouter, createBrowserRouter, MemoryRouter, Route, RouterProvider, Routes } from "react-router-dom";
-import { Header } from "../components/Header";
-import { Home } from "../components/Home";
-import { Shop } from "../components/Shop";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { routes } from "../routes";
 
 describe("Testing that the Router", () => {
+	const router = createBrowserRouter(routes);
+
 	it("displays the Header", () => {
-		render(
-			<MemoryRouter initialEntries={["/"]}>
-				<Header />
-				<Routes>
-					<Route path="/" element={<Home />} />
-					<Route path="/home" element={<Home />} />
-					<Route path="/shop" element={<Shop />} />
-				</Routes>
-			</MemoryRouter>
-		);
+		render(<RouterProvider router={router}></RouterProvider>);
 
 		screen.debug();
 
@@ -27,16 +18,7 @@ describe("Testing that the Router", () => {
 	});
 
 	it("displays the Home at default", () => {
-		render(
-			<MemoryRouter initialEntries={["/"]}>
-				<Header />
-				<Routes>
-					<Route path="/" element={<Home />} />
-					<Route path="/home" element={<Home />} />
-					<Route path="/shop" element={<Shop />} />
-				</Routes>
-			</MemoryRouter>
-		);
+		render(<RouterProvider router={router}></RouterProvider>);
 
 		screen.debug();
 
@@ -44,16 +26,7 @@ describe("Testing that the Router", () => {
 	});
 
 	it("displays the Home at /home", () => {
-		render(
-			<MemoryRouter initialEntries={["/home"]}>
-				<Header />
-				<Routes>
-					<Route path="/" element={<Home />} />
-					<Route path="/home" element={<Home />} />
-					<Route path="/shop" element={<Shop />} />
-				</Routes>
-			</MemoryRouter>
-		);
+		render(<RouterProvider router={router}></RouterProvider>);
 
 		screen.debug();
 
@@ -63,16 +36,7 @@ describe("Testing that the Router", () => {
 	it("displays the /shop and /home correctly", async () => {
 		const user = userEvent.setup();
 
-		render(
-			<MemoryRouter initialEntries={["/"]}>
-				<Header />
-				<Routes>
-					<Route path="/" element={<Home />} />
-					<Route path="/home" element={<Home />} />
-					<Route path="/shop" element={<Shop />} />
-				</Routes>
-			</MemoryRouter>
-		);
+		render(<RouterProvider router={router}></RouterProvider>);
 
 		screen.debug();
 
