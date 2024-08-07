@@ -8,6 +8,9 @@ import { Header } from "../components/Header";
 describe("Testing that the Router", () => {
 	it("displays the Header", () => {
 		render(<Header />, { wrapper: BrowserRouter });
+
+		screen.debug();
+
 		expect(screen.getByRole("link", { name: "Home" })).toBeInTheDocument();
 		expect(screen.getByRole("link", { name: "Shop" })).toBeInTheDocument();
 	});
