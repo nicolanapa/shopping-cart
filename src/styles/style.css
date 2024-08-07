@@ -18,13 +18,22 @@ a:visited {
 .header-container {
 	display: flex;
 	justify-content: space-around;
+	align-items: center;
 	margin: 10px 15px 20px;
-	padding: 20px 5px;
+	padding: 15px 5px;
 	background-color: rgb(242, 255, 205);
 	border-radius: 40px;
 }
 
-.header-container h1,
-.header-container h2 {
+.header-container h1 {
 	font-size: calc(1.25rem + 6px);
+}
+
+.header-container h2 {
+	font-size: calc(1.05rem + 6px);
+}
+
+#cart-icon {
+	margin-top: 5px;
+	padding: 5px;
 }
