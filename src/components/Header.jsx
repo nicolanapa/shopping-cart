@@ -4,13 +4,18 @@ import { Link, Outlet } from "react-router-dom";
 function Header() {
 	return (
 		<>
-			<header>
+			<header className="header-container">
 				<h1>
 					<Link to="/">Home</Link>
 				</h1>
-				<h2>
-					<Link to="shop">Shop</Link>
-				</h2>
+				<section className="header-shop">
+					<h2>
+						<Link to="shop">Shop</Link>
+					</h2>
+					<Link to="cart">
+						<img src="./cart.svg" alt="Cart" />
+					</Link>
+				</section>
 			</header>
 			<Outlet />
 		</>
