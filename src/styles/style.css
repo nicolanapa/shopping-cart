@@ -51,6 +51,11 @@ a:visited {
 	grid-auto-columns: 1fr;
 }
 
+.center {
+	display: flex;
+	justify-content: center;
+}
+
 .information-container {
 	display: flex;
 	flex-direction: column;
