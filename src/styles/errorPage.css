@@ -1,4 +1,4 @@
-main {
+.error-main {
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -9,7 +9,7 @@ main {
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-    margin-top: 15%;
+	margin-top: 15%;
 	padding: 60px 30px;
 	background-color: rgb(255, 245, 255);
 	border-radius: 7.5px;
@@ -21,5 +21,5 @@ main {
 
 .error-container > p {
 	color: rgb(140, 0, 0);
-    margin-top: 5px;
+	margin-top: 5px;
 }
