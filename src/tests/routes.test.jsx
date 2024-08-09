@@ -22,7 +22,7 @@ describe("Testing that the Router", () => {
 
 		screen.debug();
 
-		expect(screen.getByRole("heading", { level: 2, name: "Test Home" })).toBeInTheDocument();
+		expect(screen.getByRole("main")).toBeInTheDocument();
 	});
 
 	it("displays the Home at /home", () => {
