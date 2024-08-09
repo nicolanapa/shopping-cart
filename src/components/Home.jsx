@@ -3,7 +3,9 @@ import React from "react";
 function Home() {
 	return (
 		<main>
-			<h2 className="title center">Home</h2>
+			<h2 data-testid="title" className="title center">
+				Home
+			</h2>
 			<div className="grid-home-container">
 				<section className="information-container rose-color">
 					<img src="./launched.svg" alt="Launch" width="40px" height="auto" />
