@@ -23,6 +23,6 @@ describe("Testing that Product", () => {
 
 		expect(screen.getByRole("heading", { level: 3, name: product1.name })).toBeInTheDocument();
 		expect(screen.getByRole("heading", { level: 4, name: product1.price })).toBeInTheDocument();
-		expect(screen.getByText(product1.description)).toBeInTheDocument();
+		expect(screen.getByAltText(product1.title)).toBeInTheDocument();
 	});
 });
