@@ -25,7 +25,8 @@ a:visited {
 	border-radius: 40px;
 }
 
-.header-container h1 {
+.header-container h1,
+.title {
 	font-size: calc(1.25rem + 6px);
 }
 
@@ -47,8 +48,13 @@ a:visited {
 
 .grid-home-container {
 	display: grid;
-	grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+	grid-template-columns: repeat(auto-fill, minmax(max(50%, 100%/2), 1fr));
 	grid-auto-columns: 1fr;
+	justify-items: center;
+}
+
+.title {
+	font-weight: 400;
 }
 
 .center {
@@ -62,8 +68,9 @@ a:visited {
 	align-items: center;
 	gap: 10px;
 	margin: 20px 10px;
-	padding: 10px;
+	padding: 40px 20px;
 	border-radius: 5px;
+	max-width: 600px;
 }
 
 .rose-color {
