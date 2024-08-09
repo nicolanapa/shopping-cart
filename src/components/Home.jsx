@@ -23,7 +23,7 @@ function Home() {
 					<img src="./update2.svg" alt="Update" width="40px" height="auto" />
 				</section>
 
-				<section className="information-container green-color">
+				<section className="information-container rose-color">
 					<img src="./roadmap.svg" alt="Roadmap" width="40px" height="auto" />
 					<h3>Roadmap to be announced in 2025</h3>
 					<p>It will be interesting</p>
