@@ -2,10 +2,28 @@ import React from "react";
 import "../styles/product.css";
 
 function Product({ product }) {
+	let amountOfStars = Math.floor(product.rating.rate);
+	let renderedStars = [];
+
+	for (let i = 0; i < amountOfStars; i++) {
+		renderedStars.push(<img src="./starFull.svg" alt="Full Star" width="20px" height="auto" />);
+	}
+
+	if (product.rating.rate - amountOfStars > 0) {
+		amountOfStars += 0.5;
+	} else {
+	}
+
 	return (
 		<div className="product-container">
 			<p className="category">{product.category}</p>
 			{/*Stars and rating count*/}
+
+			<div className="rating-container">
+				{}
+				<p>{product.rating.count}</p>
+			</div>
+
 			<h3 className="product-title">{product.title}</h3>
 			<p>{product.description}</p>
 
