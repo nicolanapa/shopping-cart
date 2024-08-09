@@ -1,26 +1,31 @@
 import React from "react";
 import "../styles/product.css";
+import { v7 as uuidv7 } from "uuid";
 
 function Product({ product }) {
 	let amountOfStars = Math.floor(product.rating.rate);
 	let renderedStars = [];
 
 	for (let i = 0; i < amountOfStars; i++) {
-		renderedStars.push(<img src="./starFull.svg" alt="Full Star" width="20px" height="auto" />);
+		let randomKey = uuidv7();
+		renderedStars.push(<img src="./starFull.svg" alt="Full Star" width="20px" height="auto" key={randomKey} />);
 	}
 
 	if (product.rating.rate - amountOfStars > 0) {
 		amountOfStars += 0.5;
-	} else {
+
+		let randomKey = uuidv7();
+
+		renderedStars.push(<img src="./starHalf.svg" alt="Half Star" width="20px" height="auto" key={randomKey} />);
 	}
 
 	return (
 		<div className="product-container">
 			<p className="category">{product.category}</p>
-			{/*Stars and rating count*/}
 
 			<div className="rating-container">
-				{}
+				{renderedStars}
+
 				<p>{product.rating.count}</p>
 			</div>
 
