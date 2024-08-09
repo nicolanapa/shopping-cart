@@ -22,7 +22,7 @@ describe("Testing that the Router", () => {
 
 		screen.debug();
 
-		expect(screen.getByRole("main")).toBeInTheDocument();
+		expect(screen.getByRole("heading", { level: 2, name: "Home" })).toBeInTheDocument();
 	});
 
 	it("displays the Home at /home", () => {
@@ -30,7 +30,7 @@ describe("Testing that the Router", () => {
 
 		screen.debug();
 
-		expect(screen.getByRole("heading", { level: 2, name: "Test Home" })).toBeInTheDocument();
+		expect(screen.getByRole("heading", { level: 2, name: "Home" })).toBeInTheDocument();
 	});
 
 	it("displays the /shop and /home correctly", async () => {
@@ -40,7 +40,7 @@ describe("Testing that the Router", () => {
 
 		screen.debug();
 
-		expect(screen.getByRole("heading", { level: 2, name: "Test Home" })).toBeInTheDocument();
+		expect(screen.getByRole("heading", { level: 2, name: "Home" })).toBeInTheDocument();
 
 		const headerLinks = [screen.getByRole("link", { name: "Home" }), screen.getByRole("link", { name: "Shop" })];
 
@@ -48,10 +48,10 @@ describe("Testing that the Router", () => {
 
 		screen.debug();
 
-		expect(screen.getByRole("heading", { level: 2, name: "Test Shop" })).toBeInTheDocument();
+		expect(screen.getByRole("heading", { level: 2, name: "Shop" })).toBeInTheDocument();
 
 		await user.click(headerLinks[0]);
 
-		expect(screen.getByRole("heading", { level: 2, name: "Test Home" })).toBeInTheDocument();
+		expect(screen.getByRole("heading", { level: 2, name: "Home" })).toBeInTheDocument();
 	});
 });
