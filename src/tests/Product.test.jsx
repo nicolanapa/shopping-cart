@@ -21,6 +21,9 @@ describe("Testing that Product", () => {
 
 		screen.debug();
 
+		expect(screen.getAllByAltText("Full Star")).toHaveLength(3);
+		expect(screen.getAllByAltText("Half Star")).toHaveLength(1);
+		expect(screen.getByRole("paragraph"), { name: "120" }).toBeInTheDocument();
 		expect(screen.getByRole("heading", { level: 3, name: product1.name })).toBeInTheDocument();
 		expect(screen.getByRole("heading", { level: 4, name: product1.price })).toBeInTheDocument();
 		expect(screen.getByAltText(product1.title)).toBeInTheDocument();
