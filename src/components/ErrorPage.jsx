@@ -4,7 +4,7 @@ import "../styles/errorPage.css";
 
 function ErrorPage() {
 	return (
-		<main>
+		<main className="error-main">
 			<section className="error-container">
 				<h2>404, Page not found</h2>
 				<p>
