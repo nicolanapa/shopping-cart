@@ -48,10 +48,10 @@ describe("Testing that the Router", () => {
 
 		screen.debug();
 
-		expect(screen.getByRole("heading", { level: 2, name: "Shop" })).toBeInTheDocument();
+		expect(screen.getByTestId("title", { name: "Shop" })).toBeInTheDocument();
 
 		await user.click(headerLinks[0]);
 
-		expect(screen.getByRole("heading", { level: 2, name: "Home" })).toBeInTheDocument();
+		expect(screen.getByTestId("title", { name: "Home" })).toBeInTheDocument();
 	});
 });
