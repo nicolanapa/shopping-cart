@@ -15,7 +15,13 @@ describe("Testing that Shop", () => {
 
 		await user.click(screen.getByRole("link", { name: "Shop" }));
 
-		expect(screen.getAllByRole("heading", { level: "3" })).toHaveLength(15);
+		/*await act(async () => {
+			await waitFor(async () => {
+				console.log(await screen.findAllByTestId("product-title").length);
+			}, 2000);
+		});*/
+
+		expect(await screen.findAllByRole("heading", { level: 3 })).toHaveLength(15);
 
 		screen.debug();
 	});
