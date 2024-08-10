@@ -30,7 +30,7 @@ function Product({ product }) {
 			</div>
 
 			<h3 className="product-title">{product.title}</h3>
-			<p>{product.description}</p>
+			<p className="product-description">{product.description}</p>
 
 			<h4>{product.price}</h4>
 
@@ -39,7 +39,7 @@ function Product({ product }) {
 				<button>Add To Cart</button>
 			</div>
 
-			<img src={product.image} alt={product.title} width="100px" height="auto" />
+			<img className="product-image" src={product.image} alt={product.title} width="150px" height="auto" />
 		</div>
 	);
 }
