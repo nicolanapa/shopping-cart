@@ -21,12 +21,12 @@ function Product({ product }) {
 
 	return (
 		<div className="product-container">
-			<p className="category">{product.category}</p>
+			<p className="category">{product.category.charAt(0).toUpperCase() + product.category.slice(1)}</p>
 
 			<div className="rating-container">
 				{renderedStars}
 
-				<p>{product.rating.count}</p>
+				<p>{product.rating.count} ratings</p>
 			</div>
 
 			<h3 className="product-title">{product.title}</h3>
