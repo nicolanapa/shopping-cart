@@ -32,12 +32,12 @@ function Product({ product }) {
 			<h3 className="product-title">{product.title}</h3>
 			<p className="product-description">{product.description}</p>
 
-			<h4>{product.price}</h4>
+			<h4>{product.price} €</h4>
 
-			<div className="button-container">
+			<form className="button-container">
 				<input id="quantity-to-cart" type="number" min="1" max="30" />
-				<button>Add To Cart</button>
-			</div>
+				<button className="add-to-cart">Add To Cart</button>
+			</form>
 
 			<img className="product-image" src={product.image} alt={product.title} width="150px" height="auto" />
 		</div>
