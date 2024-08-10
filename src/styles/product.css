@@ -36,11 +36,23 @@
 	margin-left: 5px;
 }
 
+.product-image {
+	align-self: center;
+}
+
+.product-description {
+    margin: 10px 5px 30px;
+}
+
 @media only screen and (max-width: 400px) {
 	.all-products-container {
 		grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
 		row-gap: 20px;
 	}
+
+    .product-description {
+        font-weight: 300;
+    }
 }
 
 @media only screen and (min-width: 400px) {
@@ -49,4 +61,8 @@
 		column-gap: 30px;
 		row-gap: 40px;
 	}
+
+    .product-description {
+        font-weight: 350;
+    }
 }
