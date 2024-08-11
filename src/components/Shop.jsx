@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { fetchProduct } from "./fetchProduct";
 import { Product } from "./Product";
 import { v7 as uuidv7 } from "uuid";
+import { Outlet } from "react-router-dom";
 
 function Shop() {
 	const [allProducts, setAllProducts] = useState([]);
@@ -42,6 +43,8 @@ function Shop() {
 			<h2 data-testid="title" className="title center">
 				Shop
 			</h2>
+
+			<Outlet />
 
 			<section className="all-products-container">{allRenderedProducts}</section>
 		</main>
