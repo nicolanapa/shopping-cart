@@ -50,9 +50,9 @@ function Product({ product }) {
 				<h4>{product.price} €</h4>
 
 				<form className="button-container">
-					<input id="quantity-to-cart" type="text" value={amountOfProduct} min="1" max="30" readOnly />
-
 					<div className="update-quantity-container">
+						<input id="quantity-to-cart" type="text" value={amountOfProduct} min="1" max="30" readOnly />
+
 						<button type="button" onClick={addOne}>
 							Add
 						</button>
