@@ -13,6 +13,7 @@ function Header() {
 						<Link to="shop">Shop</Link>
 					</h2>
 					<Link to="shop/cart">
+						{/*Amount*/}
 						<img id="cart-icon" src="./cart.svg" alt="Cart" width="40px" height="auto" />
 					</Link>
 				</section>
