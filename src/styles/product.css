@@ -21,6 +21,7 @@
 
 .product-title {
 	text-align: center;
+	font-weight: 550;
 	margin-bottom: 20px;
 }
 
@@ -94,15 +95,22 @@
 	}
 }
 
-@media only screen and (min-width: 400px) {
+@media only screen and (min-width: 400px) and (max-width: 2000px) {
 	.all-products-container {
-		grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+		grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
 		column-gap: 30px;
 		row-gap: 40px;
-		margin: 20px 30px;
+		margin: 20px 10%;
 	}
 
 	.product-description {
 		font-weight: 350;
+	}
+}
+
+@media only screen and (min-width: 2000px) {
+	.all-products-container {
+		grid-template-columns: repeat(auto-fill, minmax(600px, 1fr));
+		margin: 30px 20%;
 	}
 }
