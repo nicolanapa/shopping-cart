@@ -41,7 +41,7 @@
 }
 
 .product-description {
-	margin: 10px 5px 30px;
+	margin: 10px 5px 20px;
 }
 
 .cart-and-image-container {
@@ -54,16 +54,28 @@
 	margin-left: -10px;
 }
 
-#quantity-to-cart {
-	padding: 7.5px;
+#quantity-to-cart,
+.update-quantity-container > button {
+	text-align: center;
+	padding: 8.5px;
 	border-radius: 10px;
 	box-shadow: 0 0.5px 8px 1px rgb(210, 210, 210);
 	border-style: none;
 }
 
+#quantity-to-cart {
+	width: 20px;
+}
+
+.update-quantity-container {
+	display: flex;
+	gap: 10px;
+	padding-top: 20px;
+}
+
 .add-to-cart {
-	margin: 10px 15px;
-	padding: 10px 5px;
+	margin: 10px 45px 20px;
+	padding: 10px 7.5px;
 	background-color: white;
 	border-radius: 10px;
 	box-shadow: 0 0.5px 8px 1.5px rgb(210, 210, 210);
