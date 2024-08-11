@@ -1,8 +1,22 @@
-import React from "react";
+import React, { useState } from "react";
 import "../styles/product.css";
 import { v7 as uuidv7 } from "uuid";
 
 function Product({ product }) {
+	const [amountOfProduct, setAmountOfProduct] = useState(0);
+
+	function addOne() {
+		if (amountOfProduct < 30) {
+			setAmountOfProduct(amountOfProduct + 1);
+		}
+	}
+
+	function removeOne() {
+		if (amountOfProduct > 0) {
+			setAmountOfProduct(amountOfProduct - 1);
+		}
+	}
+
 	let amountOfStars = Math.floor(product.rating.rate);
 	let renderedStars = [];
 
@@ -36,7 +50,18 @@ function Product({ product }) {
 				<h4>{product.price} €</h4>
 
 				<form className="button-container">
-					<input id="quantity-to-cart" type="number" min="1" max="30" />
+					<input id="quantity-to-cart" type="text" value={amountOfProduct} min="1" max="30" readOnly />
+
+					<div className="update-amount-quantity">
+						<button type="button" onClick={addOne}>
+							Add
+						</button>
+
+						<button type="button" onClick={removeOne}>
+							Remove
+						</button>
+					</div>
+
 					<button className="add-to-cart">Add To Cart</button>
 				</form>
 
