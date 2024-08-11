@@ -18,7 +18,7 @@ function Shop() {
 
 	useEffect(() => {
 		if (allProducts.length > 0) {
-			console.log("EVERYTHING", allProducts);
+			//console.log("EVERYTHING", allProducts);
 			let tempAllRenderedProducts = allRenderedProducts.splice();
 
 			for (let i = 0; i < 15; i++) {
@@ -33,7 +33,7 @@ function Shop() {
 			}
 
 			setAllRenderedProducts(tempAllRenderedProducts);
-			console.log("TO RENDER", allRenderedProducts);
+			//console.log("TO RENDER", allRenderedProducts);
 		}
 	}, [allProducts]);
 
