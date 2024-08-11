@@ -26,6 +26,11 @@ a:visited {
 }
 
 .header-container h1,
+.header-container h2 {
+	font-weight: 400;
+}
+
+.header-container h1,
 .title {
 	font-size: calc(1.25rem + 6px);
 }
