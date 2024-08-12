@@ -20,9 +20,11 @@ a:visited {
 	justify-content: space-around;
 	align-items: center;
 	margin: 10px 15px 20px;
-	padding: 15px 5px;
-	background-color: rgb(242, 255, 205);
+	padding: 10px 5px;
+	background-color: rgb(246, 231, 231);
 	border-radius: 40px;
+	border-top-left-radius: 7.5px;
+	border-top-right-radius: 7.5px;
 }
 
 .header-container h1,
@@ -46,9 +48,10 @@ a:visited {
 	margin-top: 2.5px;
 }
 
-#cart-icon {
-	margin-top: 5px;
-	padding: 5px;
+.header-cart-container {
+	font-size: calc(1.05rem + 4px);
+	font-weight: 200;
+	margin-top: 10px;
 }
 
 .grid-home-container {
