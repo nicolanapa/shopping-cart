@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import "../styles/product.css";
 import { v7 as uuidv7 } from "uuid";
-
-function Product({ product }) {
+function Product({ product, cart = "" }) {
 	const [amountOfProduct, setAmountOfProduct] = useState(0);
+	const [productsInCart, setProductsInCart] = cart;
 
 	function addOne() {
 		if (amountOfProduct < 30) {
@@ -15,6 +15,12 @@ function Product({ product }) {
 		if (amountOfProduct > 0) {
 			setAmountOfProduct(amountOfProduct - 1);
 		}
+	}
+
+	function addToCart(e) {
+		e.preventDefault();
+
+		setProductsInCart(productsInCart + amountOfProduct);
 	}
 
 	let amountOfStars = Math.floor(product.rating.rate);
@@ -49,7 +55,7 @@ function Product({ product }) {
 			<div className="cart-and-image-container">
 				<h4>{product.price} €</h4>
 
-				<form className="button-container">
+				<form className="button-container" onSubmit={addToCart}>
 					<div className="update-quantity-container">
 						<input id="quantity-to-cart" type="text" value={amountOfProduct} min="1" max="30" readOnly />
 
