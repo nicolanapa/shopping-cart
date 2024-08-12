@@ -3,7 +3,7 @@ import "../styles/product.css";
 import { v7 as uuidv7 } from "uuid";
 function Product({ product, cart = "" }) {
 	const [amountOfProduct, setAmountOfProduct] = useState(0);
-	const [productsInCart, setProductsInCart] = cart;
+	const [amountOfProductsInCart, setamountOfProductsInCart] = cart;
 
 	function addOne() {
 		if (amountOfProduct < 30) {
@@ -20,7 +20,7 @@ function Product({ product, cart = "" }) {
 	function addToCart(e) {
 		e.preventDefault();
 
-		setProductsInCart(productsInCart + amountOfProduct);
+		setamountOfProductsInCart(amountOfProductsInCart + amountOfProduct);
 
 		setAmountOfProduct(0);
 	}

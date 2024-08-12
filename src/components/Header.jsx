@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Link, Outlet } from "react-router-dom";
 
 function Header() {
-	const [productsInCart, setProductsInCart] = useState(0);
+	const [amountOfProductsInCart, setamountOfProductsInCart] = useState(0);
 
 	return (
 		<>
@@ -17,13 +17,13 @@ function Header() {
 
 					<div className="header-cart-container">
 						<Link to="shop/cart">
-							{productsInCart}
+							{amountOfProductsInCart}
 							<img id="cart-icon" src="./cart.svg" alt="Cart" width="40px" height="auto" />
 						</Link>
 					</div>
 				</section>
 			</header>
-			<Outlet context={[productsInCart, setProductsInCart]} />
+			<Outlet context={[amountOfProductsInCart, setamountOfProductsInCart]} />
 		</>
 	);
 }
