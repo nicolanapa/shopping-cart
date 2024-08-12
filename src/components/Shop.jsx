@@ -2,10 +2,11 @@ import React, { useEffect, useState } from "react";
 import { fetchProduct } from "./fetchProduct";
 import { Product } from "./Product";
 import { v7 as uuidv7 } from "uuid";
-import { Outlet } from "react-router-dom";
+import { Outlet, useOutletContext } from "react-router-dom";
 
 function Shop() {
 	const [allProducts, setAllProducts] = useState([]);
+	const [productsInCart, setProductsInCart] = useOutletContext();
 
 	useEffect(() => {
 		async function fetchEverythingThenRender() {
