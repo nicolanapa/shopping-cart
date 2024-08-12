@@ -14,10 +14,13 @@ function Header() {
 					<h2>
 						<Link to="shop">Shop</Link>
 					</h2>
-					<Link to="shop/cart">
-						{productsInCart}
-						<img id="cart-icon" src="./cart.svg" alt="Cart" width="40px" height="auto" />
-					</Link>
+
+					<div className="header-cart-container">
+						<Link to="shop/cart">
+							{productsInCart}
+							<img id="cart-icon" src="./cart.svg" alt="Cart" width="40px" height="auto" />
+						</Link>
+					</div>
 				</section>
 			</header>
 			<Outlet context={[productsInCart, setProductsInCart]} />
