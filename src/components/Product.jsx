@@ -21,6 +21,8 @@ function Product({ product, cart = "" }) {
 		e.preventDefault();
 
 		setProductsInCart(productsInCart + amountOfProduct);
+
+		setAmountOfProduct(0);
 	}
 
 	let amountOfStars = Math.floor(product.rating.rate);
