@@ -6,7 +6,6 @@ import { Outlet } from "react-router-dom";
 
 function Shop() {
 	const [allProducts, setAllProducts] = useState([]);
-	const [allRenderedProducts, setAllRenderedProducts] = useState([]);
 
 	useEffect(() => {
 		async function fetchEverythingThenRender() {
@@ -17,27 +16,6 @@ function Shop() {
 		fetchEverythingThenRender();
 	}, []);
 
-	useEffect(() => {
-		if (allProducts.length > 0) {
-			//console.log("EVERYTHING", allProducts);
-			let tempAllRenderedProducts = allRenderedProducts.splice();
-
-			for (let i = 0; i < 15; i++) {
-				let randomKey = uuidv7();
-
-				if (tempAllRenderedProducts.length === 0) {
-					setAllRenderedProducts(<Product product={allProducts[i]} key={randomKey} />);
-					tempAllRenderedProducts.push(<Product product={allProducts[i]} key={randomKey} />);
-				} else {
-					tempAllRenderedProducts.push(<Product product={allProducts[i]} key={randomKey} />);
-				}
-			}
-
-			setAllRenderedProducts(tempAllRenderedProducts);
-			//console.log("TO RENDER", allRenderedProducts);
-		}
-	}, [allProducts]);
-
 	return (
 		<main>
 			<h2 data-testid="title" className="title center">
@@ -46,7 +24,12 @@ function Shop() {
 
 			<Outlet />
 
-			<section className="all-products-container">{allRenderedProducts}</section>
+			<section className="all-products-container">
+				{allProducts.map((product) => {
+					let randomKey = uuidv7();
+					return <Product product={product} key={randomKey} />;
+				})}
+			</section>
 		</main>
 	);
 }
