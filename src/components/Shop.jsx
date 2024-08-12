@@ -28,7 +28,7 @@ function Shop() {
 			<section className="all-products-container">
 				{allProducts.map((product) => {
 					let randomKey = uuidv7();
-					return <Product product={product} key={randomKey} />;
+					return <Product product={product} cart={[productsInCart, setProductsInCart]} key={randomKey} />;
 				})}
 			</section>
 		</main>
