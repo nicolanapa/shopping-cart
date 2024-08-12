@@ -6,7 +6,8 @@ import { Outlet, useOutletContext } from "react-router-dom";
 
 function Shop() {
 	const [allProducts, setAllProducts] = useState([]);
-	const [productsInCart, setProductsInCart] = useOutletContext();
+	const [amountOfProductsInCart, setamountOfProductsInCart] = useOutletContext();
+	const [productsInCart, setProductsInCart] = useState([]);
 
 	useEffect(() => {
 		async function fetchEverythingThenRender() {
@@ -28,7 +29,7 @@ function Shop() {
 			<section className="all-products-container">
 				{allProducts.map((product) => {
 					let randomKey = uuidv7();
-					return <Product product={product} cart={[productsInCart, setProductsInCart]} key={randomKey} />;
+					return <Product product={product} cart={[amountOfProductsInCart, setamountOfProductsInCart]} key={randomKey} />;
 				})}
 			</section>
 		</main>
