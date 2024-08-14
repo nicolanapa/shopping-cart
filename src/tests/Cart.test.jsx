@@ -38,6 +38,21 @@ describe("Testing that the Cart", () => {
 		screen.debug();
 	});
 
+	it("shows 'Nothing here yet!' when the Cart is empty", async () => {
+		const user = userEvent.setup();
+
+		render(<RouterProvider router={router}></RouterProvider>);
+
+		await user.click(screen.getByRole("link", { name: "Shop" }));
+		await user.click(screen.getByAltText("Cart"));
+
+		expect(screen.queryByRole("heading", { level: 3, name: "Here's your Cart" })).toBeInTheDocument();
+
+		expect(screen.queryByText("Nothing here yet!")).toBeInTheDocument();
+
+		screen.debug();
+	});
+
 	it("shows up an added Product", async () => {
 		const user = userEvent.setup();
 
