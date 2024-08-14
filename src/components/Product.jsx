@@ -1,19 +1,20 @@
 import React, { useState } from "react";
 import "../styles/product.css";
 import { v7 as uuidv7 } from "uuid";
-function Product({ allProductsInCart, product, cart = "" }) {
-	const [localAmountOfProduct, setAmountOfProduct] = useState(0);
+function Product({ allProductsInCart = [], product, cart = "" }) {
+	const [productsInCart, setProductsInCart] = allProductsInCart;
+	const [localAmountOfProduct, setLocalAmountOfProduct] = useState(0);
 	const [amountOfProductsInIconCart, setamountOfProductsInIconCart] = cart;
 
 	function addOne() {
 		if (localAmountOfProduct < 30) {
-			setAmountOfProduct(localAmountOfProduct + 1);
+			setLocalAmountOfProduct(localAmountOfProduct + 1);
 		}
 	}
 
 	function removeOne() {
 		if (localAmountOfProduct > 0) {
-			setAmountOfProduct(localAmountOfProduct - 1);
+			setLocalAmountOfProduct(localAmountOfProduct - 1);
 		}
 	}
 
@@ -21,9 +22,19 @@ function Product({ allProductsInCart, product, cart = "" }) {
 		e.preventDefault();
 
 		setamountOfProductsInIconCart(amountOfProductsInIconCart + localAmountOfProduct);
-		//
 
-		setAmountOfProduct(0);
+		product.amount = localAmountOfProduct;
+
+		if (productsInCart.length === 0) {
+			setProductsInCart([product]);
+		} else {
+			let tempProductsInCart = productsInCart.slice(0);
+			tempProductsInCart.push(product);
+
+			setProductsInCart(tempProductsInCart);
+		}
+
+		setLocalAmountOfProduct(0);
 	}
 
 	let amountOfStars = Math.floor(product.rating.rate);

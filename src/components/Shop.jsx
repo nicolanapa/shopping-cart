@@ -31,7 +31,7 @@ function Shop() {
 					let randomKey = uuidv7();
 					return (
 						<Product
-							allFetchedProductsInCart={[productsInCart, setProductsInCart]}
+							allProductsInCart={[productsInCart, setProductsInCart]}
 							product={product}
 							cart={[amountOfProductsInIconCart, setamountOfProductsInIconCart]}
 							key={randomKey}
