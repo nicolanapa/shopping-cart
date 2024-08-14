@@ -16,7 +16,7 @@ function Cart() {
 				productsInCart.map((product) => {
 					let randomKey = uuidv7();
 
-					return <ProductInCart key={randomKey} product={product} />;
+					return <ProductInCart product={product} key={randomKey} />;
 				})
 			)}
 		</section>
