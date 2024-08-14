@@ -26,7 +26,7 @@ function Cart() {
 							<ProductInCart product={product} />
 
 							<div>
-								<p>{amount} €</p>
+								<p data-testid="total-amount-in-cart">{amount} €</p>
 								<button>Pay Now!</button>
 							</div>
 						</div>

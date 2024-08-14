@@ -2,11 +2,11 @@ import React from "react";
 
 function ProductInCart({ product }) {
 	return (
-		<div className="product-in-cart-container">
+		<div data-testid="product-in-cart" className="product-in-cart-container">
 			<h4>{product.title}</h4>
 
 			<div>
-				<p>{product.amount}</p>
+				<p data-testid="amount-of-product">{product.amount}</p>
 				<p>x</p>
 				<h5>{product.price} €</h5>
 			</div>

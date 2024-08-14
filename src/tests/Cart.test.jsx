@@ -65,9 +65,14 @@ describe("Testing that the Cart", () => {
 
 		await user.click(screen.queryAllByRole("button", { name: "Add" })[0]);
 
-		expect(screen.queryAllByTestId("product-in-cart")).toHaveLength(1);
-		expect(screen.queryAllByTestId("amount-in-cart")).toHaveLength(1);
-		expect(screen.queryAllByTestId("total-amount-in-cart")).toBe(219.9);
+		expect(screen.queryAllByTestId("product-in-cart")).toBe(1);
+		expect(screen.queryAllByTestId("total-amount-in-cart")).toBe("109.95 €");
+
+		await user.click(screen.queryAllByRole("button", { name: "Add" })[0]);
+
+		expect(screen.queryAllByTestId("product-in-cart")).toBe(2);
+		expect(screen.queryAllByTestId("amount-of-product")).toHaveLength(1);
+		expect(screen.queryAllByTestId("total-amount-in-cart")).toBe("219.9 €");
 		screen.debug();
 	});
 });
