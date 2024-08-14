@@ -37,4 +37,6 @@ describe("Testing that the Cart", () => {
 
 		screen.debug();
 	});
+
+	it("shows up an added Product", () => {});
 });
