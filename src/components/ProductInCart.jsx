@@ -1,6 +1,6 @@
 import React from "react";
 
-function ProductInCart() {
+function ProductInCart({ product }) {
 	return <div></div>;
 }
 
