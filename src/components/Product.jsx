@@ -21,6 +21,10 @@ function Product({ allProductsInCart = [], product, cart = "" }) {
 	function addToCart(e) {
 		e.preventDefault();
 
+		if (localAmountOfProduct === 0) {
+			return 0;
+		}
+
 		setamountOfProductsInIconCart(amountOfProductsInIconCart + localAmountOfProduct);
 
 		product.amount = localAmountOfProduct;
