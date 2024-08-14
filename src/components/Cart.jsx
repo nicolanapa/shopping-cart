@@ -40,7 +40,7 @@ function Cart() {
 					})}
 
 					<div>
-						<p data-testid="total-amount-in-cart">{(amount * 10) / 10} €</p>
+						<p data-testid="total-amount-in-cart">{Math.round(amount * 100) / 100} €</p>
 						<button>Pay Now!</button>
 					</div>
 				</div>
