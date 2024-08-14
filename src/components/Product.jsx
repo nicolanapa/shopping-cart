@@ -30,7 +30,7 @@ function Product({ product, cart = "" }) {
 
 	for (let i = 0; i < amountOfStars; i++) {
 		let randomKey = uuidv7();
-		renderedStars.push(<img src="./starFull.svg" alt="Full Star" width="20px" height="auto" key={randomKey} />);
+		renderedStars.push(<img src="/starFull.svg" alt="Full Star" width="20px" height="auto" key={randomKey} />);
 	}
 
 	if (product.rating.rate - amountOfStars > 0) {
@@ -38,7 +38,7 @@ function Product({ product, cart = "" }) {
 
 		let randomKey = uuidv7();
 
-		renderedStars.push(<img src="./starHalf.svg" alt="Half Star" width="20px" height="auto" key={randomKey} />);
+		renderedStars.push(<img src="/starHalf.svg" alt="Half Star" width="20px" height="auto" key={randomKey} />);
 	}
 
 	return (
