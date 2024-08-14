@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useOutletContext } from "react-router-dom";
 import { ProductInCart } from "./ProductInCart";
 import { v7 as uuidv7 } from "uuid";
+import "../styles/productInCart.css";
 
 function Cart() {
 	const [productsInCart, setProductsInCart] = useOutletContext();
