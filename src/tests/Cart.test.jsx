@@ -38,5 +38,21 @@ describe("Testing that the Cart", () => {
 		screen.debug();
 	});
 
-	it("shows up an added Product", () => {});
+	it("shows up an added Product", async () => {
+		const user = userEvent.setup();
+
+		render(<RouterProvider router={router}></RouterProvider>);
+
+		await user.click(screen.getByRole("link", { name: "Shop" }));
+		await user.click(screen.getByAltText("Cart"));
+
+		expect(screen.queryByRole("heading", { level: 3, name: "Here's your Cart" })).toBeInTheDocument();
+
+		await user.click(screen.queryAllByRole("button", { name: "Add" })[0]);
+
+		expect(screen.queryAllByTestId("product-in-cart")).toHaveLength(1);
+		expect(screen.queryAllByTestId("amount-in-cart")).toHaveLength(1);
+		expect(screen.queryAllByTestId("total-amount-in-cart")).toBe(219.9);
+		screen.debug();
+	});
 });
