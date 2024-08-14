@@ -1,26 +1,27 @@
 import React, { useState } from "react";
 import "../styles/product.css";
 import { v7 as uuidv7 } from "uuid";
-function Product({ product, cart = "" }) {
-	const [amountOfProduct, setAmountOfProduct] = useState(0);
-	const [amountOfProductsInCart, setamountOfProductsInCart] = cart;
+function Product({ allProductsInCart, product, cart = "" }) {
+	const [localAmountOfProduct, setAmountOfProduct] = useState(0);
+	const [amountOfProductsInIconCart, setamountOfProductsInIconCart] = cart;
 
 	function addOne() {
-		if (amountOfProduct < 30) {
-			setAmountOfProduct(amountOfProduct + 1);
+		if (localAmountOfProduct < 30) {
+			setAmountOfProduct(localAmountOfProduct + 1);
 		}
 	}
 
 	function removeOne() {
-		if (amountOfProduct > 0) {
-			setAmountOfProduct(amountOfProduct - 1);
+		if (localAmountOfProduct > 0) {
+			setAmountOfProduct(localAmountOfProduct - 1);
 		}
 	}
 
 	function addToCart(e) {
 		e.preventDefault();
 
-		setamountOfProductsInCart(amountOfProductsInCart + amountOfProduct);
+		setamountOfProductsInIconCart(amountOfProductsInIconCart + localAmountOfProduct);
+		//
 
 		setAmountOfProduct(0);
 	}
@@ -59,7 +60,7 @@ function Product({ product, cart = "" }) {
 
 				<form className="button-container" onSubmit={addToCart}>
 					<div className="update-quantity-container">
-						<input id="quantity-to-cart" type="text" value={amountOfProduct} min="1" max="30" readOnly />
+						<input id="quantity-to-cart" type="text" value={localAmountOfProduct} min="1" max="30" readOnly />
 
 						<button type="button" onClick={addOne}>
 							Add

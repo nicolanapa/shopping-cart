@@ -5,14 +5,14 @@ import { v7 as uuidv7 } from "uuid";
 import { Outlet, useOutletContext } from "react-router-dom";
 
 function Shop() {
-	const [allProducts, setAllProducts] = useState([]);
-	const [amountOfProductsInCart, setamountOfProductsInCart] = useOutletContext();
+	const [allFetchedProducts, setallFetchedProducts] = useState([]);
+	const [amountOfProductsInIconCart, setamountOfProductsInIconCart] = useOutletContext();
 	const [productsInCart, setProductsInCart] = useState([]);
 
 	useEffect(() => {
 		async function fetchEverythingThenRender() {
-			let tempAllProducts = await fetchProduct();
-			setAllProducts(tempAllProducts);
+			let tempallFetchedProducts = await fetchProduct();
+			setallFetchedProducts(tempallFetchedProducts);
 		}
 
 		fetchEverythingThenRender();
@@ -27,9 +27,16 @@ function Shop() {
 			<Outlet context={[productsInCart, setProductsInCart]} />
 
 			<section className="all-products-container">
-				{allProducts.map((product) => {
+				{allFetchedProducts.map((product) => {
 					let randomKey = uuidv7();
-					return <Product product={product} cart={[amountOfProductsInCart, setamountOfProductsInCart]} key={randomKey} />;
+					return (
+						<Product
+							allFetchedProductsInCart={[productsInCart, setProductsInCart]}
+							product={product}
+							cart={[amountOfProductsInIconCart, setamountOfProductsInIconCart]}
+							key={randomKey}
+						/>
+					);
 				})}
 			</section>
 		</main>
