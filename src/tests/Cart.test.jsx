@@ -1,6 +1,6 @@
-import React, { act } from "react";
+import React from "react";
 import { describe, it, expect } from "vitest";
-import { screen, render, waitFor } from "@testing-library/react";
+import { screen, render } from "@testing-library/react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { routes } from "../routes";
 import userEvent from "@testing-library/user-event";
