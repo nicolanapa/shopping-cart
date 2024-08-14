@@ -24,7 +24,7 @@ function Shop() {
 				Shop
 			</h2>
 
-			<Outlet />
+			<Outlet context={[productsInCart, setProductsInCart]} />
 
 			<section className="all-products-container">
 				{allProducts.map((product) => {
