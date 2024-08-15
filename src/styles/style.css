@@ -81,6 +81,10 @@ a:visited {
 	max-width: 600px;
 }
 
+.text-centered {
+	text-align: center;
+}
+
 .rose-color {
 	background-color: rgb(255, 245, 255);
 }
