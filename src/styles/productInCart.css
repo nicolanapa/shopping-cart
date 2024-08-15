@@ -19,7 +19,7 @@
 	display: flex;
 	flex-direction: column;
 	overflow: scroll;
-	row-gap: 20px;
+	row-gap: 30px;
 }
 
 .amount-container {
