@@ -37,6 +37,8 @@
 	display: grid;
 	grid-template-columns: repeat(2, 1fr);
 	column-gap: 2.5px;
+	margin-top: 20px;
+	margin-bottom: -2.5%;
 }
 
 .pay-now-container p {
