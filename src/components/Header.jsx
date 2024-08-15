@@ -19,7 +19,7 @@ function Header() {
 						<Link to="shop/cart">
 							{amountOfProductsInIconCart}
 							&nbsp;
-							<img id="cart-icon" src="/cart.svg" alt="added in Cart" width="40px" height="auto" />
+							<img id="cart-icon" src="/shop/cart.svg" alt="added in Cart" width="40px" height="auto" />
 						</Link>
 					</div>
 				</section>
