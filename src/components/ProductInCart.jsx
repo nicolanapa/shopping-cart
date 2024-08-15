@@ -7,17 +7,7 @@ function ProductInCart({ product }) {
 	useEffect(() => {
 		let firstUppedCategoryName = product.category.charAt(0).toUpperCase() + product.category.slice(1);
 
-		if (firstUppedCategoryName === "Men's clothing") {
-			setProcessedCategoryImage(
-				<img
-					className="cart-category-image"
-					src={"/shop/categories/clothing.svg"}
-					alt={firstUppedCategoryName}
-					width="25px"
-					height="auto"
-				/>
-			);
-		} else if (firstUppedCategoryName === "Women's clothing") {
+		if (firstUppedCategoryName === "Men's clothing" || firstUppedCategoryName === "Women's clothing") {
 			setProcessedCategoryImage(
 				<img
 					className="cart-category-image"
