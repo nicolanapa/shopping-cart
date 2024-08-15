@@ -83,7 +83,7 @@
 	border-style: none;
 }
 
-@media only screen and (max-width: 400px) {
+@media only screen and (max-width: 450px) {
 	.all-products-container {
 		grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
 		row-gap: 20px;
@@ -95,9 +95,9 @@
 	}
 }
 
-@media only screen and (min-width: 400px) and (max-width: 2000px) {
+@media only screen and (min-width: 450px) and (max-width: 2000px) {
 	.all-products-container {
-		grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+		grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
 		column-gap: 30px;
 		row-gap: 40px;
 		margin: 20px 10%;
