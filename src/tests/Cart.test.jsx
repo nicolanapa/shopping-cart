@@ -63,16 +63,22 @@ describe("Testing that the Cart", () => {
 
 		expect(screen.queryByRole("heading", { level: 3, name: "Here's your Cart" })).toBeInTheDocument();
 
-		await user.click(screen.queryAllByRole("button", { name: "Add" })[0]);
+		let addButtons = await screen.findAllByRole("button", { name: "Add" });
+		let addCartButtons = await screen.findAllByRole("button", { name: "Add To Cart" });
 
-		expect(screen.queryByTestId("product-in-cart")).toBe(1);
-		expect(screen.queryByTestId("total-amount-in-cart")).toBe("109.95 €");
+		await user.click(addButtons[0]);
+		await user.click(addCartButtons[0]);
 
-		await user.click(screen.queryAllByRole("button", { name: "Add" })[0]);
+		expect(screen.getAllByTestId("product-in-cart")).toHaveLength(1);
+		expect(screen.getByTestId("amount-of-product")).toHaveTextContent(1);
+		expect(screen.getByTestId("total-amount-in-cart")).toHaveTextContent("109.95 €");
 
-		expect(screen.queryByTestId("product-in-cart")).toBe(2);
-		expect(screen.queryAllByTestId("amount-of-product")).toHaveLength(1);
-		expect(screen.queryByTestId("total-amount-in-cart")).toBe("219.9 €");
+		await user.click(addButtons[0]);
+		await user.click(addCartButtons[0]);
+
+		expect(screen.getAllByTestId("product-in-cart")).toHaveLength(1);
+		expect(screen.getAllByTestId("amount-of-product")[0]).toHaveTextContent(2);
+		expect(screen.getByTestId("total-amount-in-cart")).toHaveTextContent("219.9 €");
 		screen.debug();
 	});
 });
