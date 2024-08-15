@@ -97,11 +97,12 @@ describe("Testing that the Cart", () => {
 		expect(screen.getByTestId("total-amount-in-cart")).toHaveTextContent("109.95 €");
 
 		await user.click(addButtons[0]);
+		await user.click(addButtons[0]);
 		await user.click(addCartButtons[0]);
 
 		expect(screen.getAllByTestId("product-in-cart")).toHaveLength(1);
-		expect(screen.getAllByTestId("amount-of-product")[0]).toHaveTextContent(2);
-		expect(screen.getByTestId("total-amount-in-cart")).toHaveTextContent("219.9 €");
+		expect(screen.getAllByTestId("amount-of-product")[0]).toHaveTextContent(3);
+		expect(screen.getByTestId("total-amount-in-cart")).toHaveTextContent("329.85 €");
 		screen.debug();
 	});
 });
