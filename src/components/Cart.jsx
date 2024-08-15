@@ -29,22 +29,26 @@ function Cart() {
 		<section className="cart">
 			<h3>Here&apos;s your Cart</h3>
 
-			{!Array.isArray(productsInCart) || productsInCart.length === 0 ? (
-				<p>Nothing here yet!</p>
-			) : (
+			<div className="max-width">
 				<div className="products-in-cart-container">
-					{productsInCart.map((product) => {
-						let randomKey = uuidv7();
+					{!Array.isArray(productsInCart) || productsInCart.length === 0 ? (
+						<p>Nothing here yet!</p>
+					) : (
+						<>
+							{productsInCart.map((product) => {
+								let randomKey = uuidv7();
 
-						return <ProductInCart product={product} key={randomKey} />;
-					})}
+								return <ProductInCart product={product} key={randomKey} />;
+							})}
 
-					<div>
-						<p data-testid="total-amount-in-cart">{Math.round(amount * 100) / 100} €</p>
-						<button>Pay Now!</button>
-					</div>
+							<div className="pay-now-container">
+								<p data-testid="total-amount-in-cart">{Math.round(amount * 100) / 100} €</p>
+								<button className="pay-now-button">Pay Now!</button>
+							</div>
+						</>
+					)}
 				</div>
-			)}
+			</div>
 		</section>
 	);
 }
