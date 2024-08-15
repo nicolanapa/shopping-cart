@@ -4,9 +4,32 @@ import { v7 as uuidv7 } from "uuid";
 function Product({ allProductsInCart = [], product, cart = "" }) {
 	const [productsInCart, setProductsInCart] = allProductsInCart;
 	const [localAmountOfProduct, setLocalAmountOfProduct] = useState(0);
-	const [amountOfProductsInIconCart, setamountOfProductsInIconCart] = cart;
+	const [amountOfProductsInIconCart, setAmountOfProductsInIconCart] = cart;
 
-	function checkIfAlreadyAddedToCart() {}
+	function changeAmountOfProductInCart(indexOfProductInCart) {
+		let tempProductsInCart = productsInCart.slice(0);
+
+		/*console.log(
+			"TEMP AMOUNT",
+			tempProductsInCart[indexOfProductInCart].amount,
+			"LOCAL AMOUNT",
+			localAmountOfProduct,
+			"AMOUNT IN ICON CART",
+			amountOfProductsInIconCart
+		);*/
+
+		tempProductsInCart[indexOfProductInCart].amount += localAmountOfProduct;
+
+		setProductsInCart(tempProductsInCart);
+	}
+
+	function checkIfAlreadyAddedToCart(indexOfProductInCart) {
+		if (indexOfProductInCart !== -1) {
+			return true;
+		} else {
+			return false;
+		}
+	}
 
 	function addOne() {
 		if (localAmountOfProduct < 30) {
@@ -27,15 +50,18 @@ function Product({ allProductsInCart = [], product, cart = "" }) {
 			return 0;
 		}
 
-		setamountOfProductsInIconCart(amountOfProductsInIconCart + localAmountOfProduct);
+		setAmountOfProductsInIconCart(amountOfProductsInIconCart + localAmountOfProduct);
 
-		product.amount = localAmountOfProduct;
+		let indexOfProductInCart = productsInCart.findIndex((singleProductInCart) => singleProductInCart.id === product.id);
 
-		if (checkIfAlreadyAddedToCart()) {
+		if (checkIfAlreadyAddedToCart(indexOfProductInCart)) {
+			changeAmountOfProductInCart(indexOfProductInCart);
 			setLocalAmountOfProduct(0);
-			
+
 			return 0;
 		} else {
+			product.amount = localAmountOfProduct;
+
 			if (productsInCart.length === 0) {
 				setProductsInCart([product]);
 			} else {
@@ -45,6 +71,7 @@ function Product({ allProductsInCart = [], product, cart = "" }) {
 				setProductsInCart(tempProductsInCart);
 			}
 
+			setAmountOfProductsInIconCart(amountOfProductsInIconCart + localAmountOfProduct);
 			setLocalAmountOfProduct(0);
 		}
 	}
