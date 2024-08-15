@@ -6,6 +6,8 @@ function Product({ allProductsInCart = [], product, cart = "" }) {
 	const [localAmountOfProduct, setLocalAmountOfProduct] = useState(0);
 	const [amountOfProductsInIconCart, setamountOfProductsInIconCart] = cart;
 
+	function checkIfAlreadyAddedToCart() {}
+
 	function addOne() {
 		if (localAmountOfProduct < 30) {
 			setLocalAmountOfProduct(localAmountOfProduct + 1);
@@ -29,16 +31,22 @@ function Product({ allProductsInCart = [], product, cart = "" }) {
 
 		product.amount = localAmountOfProduct;
 
-		if (productsInCart.length === 0) {
-			setProductsInCart([product]);
+		if (checkIfAlreadyAddedToCart()) {
+			setLocalAmountOfProduct(0);
+			
+			return 0;
 		} else {
-			let tempProductsInCart = productsInCart.slice(0);
-			tempProductsInCart.push(product);
+			if (productsInCart.length === 0) {
+				setProductsInCart([product]);
+			} else {
+				let tempProductsInCart = productsInCart.slice(0);
+				tempProductsInCart.push(product);
 
-			setProductsInCart(tempProductsInCart);
+				setProductsInCart(tempProductsInCart);
+			}
+
+			setLocalAmountOfProduct(0);
 		}
-
-		setLocalAmountOfProduct(0);
 	}
 
 	let amountOfStars = Math.floor(product.rating.rate);
