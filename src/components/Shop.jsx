@@ -6,7 +6,7 @@ import { Outlet, useOutletContext } from "react-router-dom";
 
 function Shop() {
 	const [allFetchedProducts, setallFetchedProducts] = useState([]);
-	const [amountOfProductsInIconCart, setamountOfProductsInIconCart] = useOutletContext();
+	const [amountOfProductsInIconCart, setAmountOfProductsInIconCart] = useOutletContext();
 	const [productsInCart, setProductsInCart] = useState([]);
 
 	useEffect(() => {
@@ -33,7 +33,7 @@ function Shop() {
 						<Product
 							allProductsInCart={[productsInCart, setProductsInCart]}
 							product={product}
-							cart={[amountOfProductsInIconCart, setamountOfProductsInIconCart]}
+							cart={[amountOfProductsInIconCart, setAmountOfProductsInIconCart]}
 							key={randomKey}
 						/>
 					);

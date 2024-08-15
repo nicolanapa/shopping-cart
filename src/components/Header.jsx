@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Link, Outlet } from "react-router-dom";
 
 function Header() {
-	const [amountOfProductsInIconCart, setamountOfProductsInIconCart] = useState(0);
+	const [amountOfProductsInIconCart, setAmountOfProductsInIconCart] = useState(0);
 
 	return (
 		<>
@@ -24,7 +24,7 @@ function Header() {
 					</div>
 				</section>
 			</header>
-			<Outlet context={[amountOfProductsInIconCart, setamountOfProductsInIconCart]} />
+			<Outlet context={[amountOfProductsInIconCart, setAmountOfProductsInIconCart]} />
 		</>
 	);
 }
