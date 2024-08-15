@@ -14,7 +14,7 @@ describe("Testing that the Cart", () => {
 		render(<RouterProvider router={router}></RouterProvider>);
 
 		await user.click(screen.getByRole("link", { name: "Shop" }));
-		await user.click(screen.getByAltText("Cart"));
+		await user.click(screen.getByAltText("added in Cart"));
 
 		expect(screen.getByRole("heading", { level: 3, name: "Here's your Cart" })).toBeInTheDocument();
 
@@ -27,7 +27,7 @@ describe("Testing that the Cart", () => {
 		render(<RouterProvider router={router}></RouterProvider>);
 
 		await user.click(screen.getByRole("link", { name: "Shop" }));
-		await user.click(screen.getByAltText("Cart"));
+		await user.click(screen.getByAltText("added in Cart"));
 
 		expect(screen.queryByRole("heading", { level: 3, name: "Here's your Cart" })).toBeInTheDocument();
 
@@ -44,7 +44,7 @@ describe("Testing that the Cart", () => {
 		render(<RouterProvider router={router}></RouterProvider>);
 
 		await user.click(screen.getByRole("link", { name: "Shop" }));
-		await user.click(screen.getByAltText("Cart"));
+		await user.click(screen.getByAltText("added in Cart"));
 
 		expect(screen.queryByRole("heading", { level: 3, name: "Here's your Cart" })).toBeInTheDocument();
 
@@ -59,7 +59,7 @@ describe("Testing that the Cart", () => {
 		render(<RouterProvider router={router}></RouterProvider>);
 
 		await user.click(screen.getByRole("link", { name: "Shop" }));
-		await user.click(screen.getByAltText("Cart"));
+		await user.click(screen.getByAltText("added in Cart"));
 
 		expect(screen.queryByRole("heading", { level: 3, name: "Here's your Cart" })).toBeInTheDocument();
 
@@ -82,7 +82,7 @@ describe("Testing that the Cart", () => {
 		render(<RouterProvider router={router}></RouterProvider>);
 
 		await user.click(screen.getByRole("link", { name: "Shop" }));
-		await user.click(screen.getByAltText("Cart"));
+		await user.click(screen.getByAltText("added in Cart"));
 
 		expect(screen.queryByRole("heading", { level: 3, name: "Here's your Cart" })).toBeInTheDocument();
 
