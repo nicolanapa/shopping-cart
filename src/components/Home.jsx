@@ -3,7 +3,7 @@ import React from "react";
 function Home() {
 	return (
 		<main>
-			<h2 data-testid="title" className="title center">
+			<h2 data-testid="title" className="title center hided">
 				Home
 			</h2>
 			<div className="grid-home-container">

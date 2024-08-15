@@ -20,7 +20,7 @@ function Shop() {
 
 	return (
 		<main>
-			<h2 data-testid="title" className="title center">
+			<h2 data-testid="title" className="title center hided">
 				Shop
 			</h2>
 
