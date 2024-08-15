@@ -18,6 +18,7 @@ function Header() {
 					<div className="header-cart-container">
 						<Link to="shop/cart">
 							{amountOfProductsInIconCart}
+							&nbsp;
 							<img id="cart-icon" src="/cart.svg" alt="added in Cart" width="40px" height="auto" />
 						</Link>
 					</div>
