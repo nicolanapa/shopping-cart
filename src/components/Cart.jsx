@@ -32,7 +32,7 @@ function Cart() {
 			<div className="max-width">
 				<div className="products-in-cart-container">
 					{!Array.isArray(productsInCart) || productsInCart.length === 0 ? (
-						<p>Nothing here yet!</p>
+						<p className="text-centered">Nothing here yet!</p>
 					) : (
 						<>
 							{productsInCart.map((product) => {
