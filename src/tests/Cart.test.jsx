@@ -76,6 +76,41 @@ describe("Testing that the Cart", () => {
 		screen.debug();
 	});
 
+	it("shows up two different Products", async () => {
+		const user = userEvent.setup();
+
+		render(<RouterProvider router={router}></RouterProvider>);
+
+		await user.click(screen.queryByRole("link", { name: "Shop" }));
+		await user.click(screen.queryByAltText("added in Cart"));
+
+		expect(await screen.findByRole("heading", { level: 3, name: "Here's your Cart" })).toBeInTheDocument();
+
+		let addButtons = await screen.findAllByRole("button", { name: "Add" });
+		let addCartButtons = await screen.findAllByRole("button", { name: "Add To Cart" });
+
+		expect(addButtons).toHaveLength(15);
+		expect(addCartButtons).toHaveLength(15);
+
+		await user.click(addButtons[0]);
+		await user.click(addCartButtons[0]);
+
+		expect(screen.queryAllByTestId("product-in-cart")).toHaveLength(1);
+		expect(screen.queryByTestId("amount-of-product")[0]).toHaveTextContent(1);
+		expect(screen.queryByTestId("total-amount-in-cart")).toHaveTextContent("109.95 €");
+
+		console.log(addButtons);
+
+		await user.click(addButtons[1]);
+		await user.click(addCartButtons[1]);
+
+		expect(screen.queryAllByTestId("product-in-cart")).toHaveLength(2);
+		expect(screen.queryAllByTestId("amount-of-product")[1]).toHaveTextContent(1);
+		expect(screen.queryByTestId("total-amount-in-cart")).toHaveTextContent("154.55 €");
+
+		screen.debug();
+	});
+
 	it("shows up two same Products added in one .product-in-cart-container", async () => {
 		const user = userEvent.setup();
 
