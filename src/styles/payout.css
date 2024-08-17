@@ -59,3 +59,7 @@
 .credit-form > input {
     max-width: 350px;
 }
+
+.left-spacing {
+    margin-left: 10px;
+}
