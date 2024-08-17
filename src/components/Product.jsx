@@ -121,7 +121,7 @@ function Product({ allProductsInCart = [], product, cart = "" }) {
 						</button>
 					</div>
 
-					<button className="add-to-cart">Add To Cart</button>
+					<button type="submit" className="add-to-cart">Add To Cart</button>
 				</form>
 
 				<img className="product-image" src={product.image} alt={product.title} width="150px" height="auto" />
