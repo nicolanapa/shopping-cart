@@ -25,7 +25,7 @@ function Payout() {
 						</div>
 
 						<div className="credit-container">
-							<h5>your Credit Card</h5>
+							<h5>or your Credit Card</h5>
 
 							<div className="companies-container">
 								<img src="/shop/payout/visa.svg" alt="You can pay with your Visa Card" width="70px" height="auto" />
