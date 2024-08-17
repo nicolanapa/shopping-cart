@@ -10,7 +10,7 @@ function Payout() {
 				<p>Add something to the Cart before going to the Payment Section!</p>
 			) : (
 				<div>
-					<p>Test Payment -&gt; {amount} €</p>
+					<h4>Total Final Price: {Math.round(amount * 100) / 100} €</h4>
 				</div>
 			)}
 		</section>
