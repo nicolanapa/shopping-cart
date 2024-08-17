@@ -6,7 +6,13 @@ function Payout() {
 
 	return (
 		<section>
-			<p>Test Payment -&gt; {amount} €</p>
+			{amount === 0 ? (
+				<p>Add something to the Cart before going to the Payment Section!</p>
+			) : (
+				<div>
+					<p>Test Payment -&gt; {amount} €</p>
+				</div>
+			)}
 		</section>
 	);
 }
