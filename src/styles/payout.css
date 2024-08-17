@@ -1,0 +1,61 @@
+.payout-container {
+	padding: 20px 20px;
+}
+
+.google-pay-container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin-bottom: 30px;
+}
+
+.google-pay-button,
+.credit-pay-button {
+	border-style: none;
+	box-shadow: 0 0.5px 8px 1px rgb(210, 210, 210);
+	border-radius: 25px;
+	margin-top: 10px;
+}
+
+.google-pay-button {
+	padding: 2px 7.5px;
+}
+
+.credit-pay-button {
+    font-size: medium;
+	align-self: center;
+	padding: 20px 35px;
+}
+
+.google-pay-container h5,
+.credit-container h5 {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	font-size: medium;
+	margin: 15px 5px 5px;
+}
+
+.credit-container {
+	margin-bottom: 10px;
+}
+
+.companies-container {
+	display: flex;
+	flex-direction: row;
+	gap: 15px;
+	justify-content: center;
+}
+
+.credit-form {
+	display: flex;
+	flex-direction: column;
+}
+
+.credit-form > label {
+    margin: 5px 7.5px 2.5px;
+}
+
+.credit-form > input {
+    max-width: 350px;
+}
