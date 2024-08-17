@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Outlet, useNavigate, useOutletContext } from "react-router-dom";
+import { Outlet, useLocation, useNavigate, useOutletContext } from "react-router-dom";
 import { ProductInCart } from "./ProductInCart";
 import { v7 as uuidv7 } from "uuid";
 import "../styles/productInCart.css";
@@ -7,7 +7,9 @@ import "../styles/productInCart.css";
 function Cart() {
 	const [productsInCart, setProductsInCart] = useOutletContext();
 	const [amount, setAmount] = useState(0);
+	const [buttonClicked, setButtonClicked] = useState(false);
 	const navigate = useNavigate();
+	const location = useLocation();
 
 	useEffect(() => {
 		console.log(productsInCart);
@@ -28,7 +30,20 @@ function Cart() {
 
 	function navigateToPayment() {
 		navigate("./payout");
+		setButtonClicked(true);
 	}
+
+	function navigateToCart() {
+		setButtonClicked(false);
+		navigate("./");
+	}
+
+	window.onload = () => {
+		console.log(location.pathname);
+		if (location.pathname === "/shop/cart/payout") {
+			navigateToCart();
+		}
+	};
 
 	return (
 		<section className="cart">
@@ -38,7 +53,7 @@ function Cart() {
 				<div className="products-in-cart-container">
 					{!Array.isArray(productsInCart) || productsInCart.length === 0 ? (
 						<p className="text-centered">Nothing here yet!</p>
-					) : (
+					) : buttonClicked === false || location.pathname === "/shop/cart/" ? (
 						<>
 							{productsInCart.map((product) => {
 								let randomKey = uuidv7();
@@ -52,9 +67,9 @@ function Cart() {
 									Pay Now!
 								</button>
 							</div>
-
-							<Outlet context={[amount, setAmount]} />
 						</>
+					) : (
+						<Outlet context={[amount, setAmount]} />
 					)}
 				</div>
 			</div>
