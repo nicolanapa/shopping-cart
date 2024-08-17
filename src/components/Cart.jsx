@@ -28,6 +28,16 @@ function Cart() {
 		}
 	}, [productsInCart]);
 
+	useEffect(() => {
+		//console.log(location.pathname);
+
+		if (location.pathname === "/shop/cart/" || location.pathname === "/shop/cart") {
+			setButtonClicked(false);
+		} else if (location.pathname === "/shop/cart/payout" || location.pathname === "/shop/cart/payout/") {
+			setButtonClicked(true);
+		}
+	}, [location]);
+
 	function navigateToPayment() {
 		navigate("./payout");
 		setButtonClicked(true);
@@ -40,7 +50,7 @@ function Cart() {
 
 	window.onload = () => {
 		console.log(location.pathname);
-		if (location.pathname === "/shop/cart/payout") {
+		if (location.pathname === "/shop/cart/payout" || location.pathname === "/shop/cart/payout/") {
 			navigateToCart();
 		}
 	};
