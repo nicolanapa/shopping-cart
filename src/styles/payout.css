@@ -69,3 +69,10 @@
 .left-spacing {
 	margin-left: 10px;
 }
+
+#credit-cvv,
+#credit-expiry {
+	width: 70px;
+	padding-left: 40px;
+	padding-right: 20px;
+}
