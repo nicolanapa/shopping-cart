@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useOutletContext } from "react-router-dom";
+import { Outlet, useNavigate, useOutletContext } from "react-router-dom";
 import { ProductInCart } from "./ProductInCart";
 import { v7 as uuidv7 } from "uuid";
 import "../styles/productInCart.css";
@@ -7,6 +7,7 @@ import "../styles/productInCart.css";
 function Cart() {
 	const [productsInCart, setProductsInCart] = useOutletContext();
 	const [amount, setAmount] = useState(0);
+	const navigate = useNavigate();
 
 	useEffect(() => {
 		console.log(productsInCart);
@@ -24,6 +25,10 @@ function Cart() {
 			setAmount(0);
 		}
 	}, [productsInCart]);
+
+	function navigateToPayment() {
+		navigate("./payout");
+	}
 
 	return (
 		<section className="cart">
@@ -43,8 +48,12 @@ function Cart() {
 
 							<div className="pay-now-container">
 								<p data-testid="total-amount-in-cart">{Math.round(amount * 100) / 100} €</p>
-								<button className="pay-now-button">Pay Now!</button>
+								<button className="pay-now-button" onClick={navigateToPayment}>
+									Pay Now!
+								</button>
 							</div>
+
+							<Outlet context={[amount, setAmount]} />
 						</>
 					)}
 				</div>
