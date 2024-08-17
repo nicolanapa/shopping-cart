@@ -4,6 +4,7 @@ import { Shop } from "./components/Shop";
 import { ErrorPage } from "./components/ErrorPage";
 import { Header } from "./components/Header";
 import { Cart } from "./components/Cart";
+import { Payout } from "./components/Payout";
 
 const routes = [
 	{
@@ -26,6 +27,12 @@ const routes = [
 					{
 						path: "cart",
 						element: <Cart />,
+						children: [
+							{
+								path: "payout",
+								element: <Payout />,
+							},
+						],
 					},
 				],
 			},
