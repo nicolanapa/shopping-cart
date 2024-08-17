@@ -95,19 +95,21 @@ describe("Testing that the Cart", () => {
 		await user.click(addButtons[0]);
 		await user.click(addCartButtons[0]);
 
-		expect(screen.queryAllByTestId("product-in-cart")).toHaveLength(1);
-		expect(screen.queryByTestId("amount-of-product")[0]).toHaveTextContent(1);
-		expect(screen.queryByTestId("total-amount-in-cart")).toHaveTextContent("109.95 €");
+		console.log("TO", await screen.findByTestId("amount-of-product"));
+		expect(await screen.findAllByTestId("product-in-cart")).toHaveLength(1);
+		expect(await screen.findByTestId("amount-of-product")).toHaveTextContent("1");
+		expect(await screen.findByTestId("total-amount-in-cart")).toHaveTextContent("109.95 €");
 
-		console.log(addButtons);
+		//expect(await screen.findByTestId("amount-of-product").forEach((item) => item.textContent.toBe("1")));
 
 		await user.click(addButtons[1]);
 		await user.click(addCartButtons[1]);
 
-		expect(screen.queryAllByTestId("product-in-cart")).toHaveLength(2);
-		expect(screen.queryAllByTestId("amount-of-product")[1]).toHaveTextContent(1);
-		expect(screen.queryByTestId("total-amount-in-cart")).toHaveTextContent("154.55 €");
+		expect(await screen.findAllByTestId("product-in-cart")).toHaveLength(2);
+		expect(await screen.findAllByTestId("amount-of-product")[1]).toHaveTextContent(1);
+		expect(await screen.findByTestId("total-amount-in-cart")).toHaveTextContent("154.55 €");
 
+		
 		screen.debug();
 	});
 
