@@ -14,7 +14,7 @@ function Payout() {
 					<h4>Total Final Price: {Math.round(amount * 100) / 100} €</h4>
 
 					<div className="payout-container">
-						<p>You can pay with</p>
+						<p className="left-spacing">You can pay with</p>
 
 						<div className="google-pay-container">
 							<h5>Google Pay</h5>
@@ -39,13 +39,13 @@ function Payout() {
 
 							<form className="credit-form">
 								<label htmlFor="credit-name">Name and surname *</label>
-								<input type="text" id="credit-name" name="credit-name" required />
+								<input type="text" id="credit-name" name="credit-name" placeholder="Marco Rigato" required />
 								<label htmlFor="credit-number">Card Number *</label>
-								<input type="text" id="credit-number" name="credit-number" required />
+								<input type="text" id="credit-number" name="credit-number" placeholder="1234-5678-8910" required />
 								<label htmlFor="credit-cvv">Security code / CVV *</label>
-								<input type="text" id="credit-cvv" name="credit-cvv" required />
+								<input type="text" id="credit-cvv" name="credit-cvv" placeholder="123" required />
 								<label htmlFor="credit-expiry">Expiry date *</label>
-								<input type="text" id="credit-expiry" name="credit-expiry" required />
+								<input type="text" id="credit-expiry" name="credit-expiry" placeholder="04/26" required />
 
 								<button className="credit-pay-button">Pay</button>
 							</form>
