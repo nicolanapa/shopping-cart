@@ -5,10 +5,10 @@ import "../styles/errorPage.css";
 
 function Payout() {
 	const [amount, setAmount] = useOutletContext();
-	const [paying, setPaying] = useState(1);
+	const [paying, setPaying] = useState("payment-waiting");
 
 	function sendingPayment() {
-		Math.floor(Math.random() * 2) === 1 ? setPaying(2) : setPaying(0);
+		Math.floor(Math.random() * 2) === 1 ? setPaying("payment-completed") : setPaying("payment-error");
 	}
 
 	function ErrorPayment() {
@@ -38,7 +38,7 @@ function Payout() {
 		<section>
 			{amount === 0 ? (
 				<p>Add something to the Cart before going to the Payment Section!</p>
-			) : paying === 1 ? (
+			) : paying === "payment-waiting" ? (
 				<div>
 					<h4>Total Final Price: {Math.round(amount * 100) / 100} €</h4>
 
@@ -81,10 +81,10 @@ function Payout() {
 						</div>
 					</div>
 				</div>
-			) : paying === 0 ? (
-				<ErrorPayment />
-			) : (
+			) : paying === "payment-completed" ? (
 				<CompletedPayment />
+			) : (
+				<ErrorPayment />
 			)}
 		</section>
 	);
