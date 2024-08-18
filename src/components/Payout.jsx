@@ -13,7 +13,7 @@ function Payout() {
 
 	function ErrorPayment() {
 		return (
-			<div className="error-main">
+			<div className="error-main less-margin-top">
 				<section className="error-container">
 					<h2>Couldn&apos;t process your Payment!</h2>
 					<p>Please retry in 5 minutes</p>
@@ -25,7 +25,7 @@ function Payout() {
 
 	function CompletedPayment() {
 		return (
-			<div className="confermation-main">
+			<div className="confermation-main less-margin-top">
 				<section className="confermation-container">
 					<h2>Processed your Payment!</h2>
 					<p>We will send you shortly an Email</p>
