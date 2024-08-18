@@ -1,8 +1,15 @@
-import React, { useState } from "react";
-import { Link, Outlet } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { Link, Outlet, useLocation } from "react-router-dom";
 
 function Header() {
 	const [amountOfProductsInIconCart, setAmountOfProductsInIconCart] = useState(0);
+	const location = useLocation();
+
+	useEffect(() => {
+		if (location.pathname === "/" && amountOfProductsInIconCart !== 0) {
+			setAmountOfProductsInIconCart(0);
+		}
+	}, [location]);
 
 	return (
 		<>
