@@ -110,7 +110,14 @@ function Product({ allProductsInCart = [], product, cart = "" }) {
 
 				<form className="button-container" onSubmit={addToCart}>
 					<div className="update-quantity-container">
-						<input id="quantity-to-cart" type="text" value={localAmountOfProduct} min="1" max="30" readOnly />
+						<input
+							id="quantity-to-cart"
+							type="number"
+							value={localAmountOfProduct}
+							onChange={(event) => setLocalAmountOfProduct(Number(event.target.value))}
+							min="1"
+							max="30"
+						/>
 
 						<button type="button" onClick={addOne}>
 							Add
@@ -121,7 +128,9 @@ function Product({ allProductsInCart = [], product, cart = "" }) {
 						</button>
 					</div>
 
-					<button type="submit" className="add-to-cart">Add To Cart</button>
+					<button type="submit" className="add-to-cart">
+						Add To Cart
+					</button>
 				</form>
 
 				<img className="product-image" src={product.image} alt={product.title} width="150px" height="auto" />
