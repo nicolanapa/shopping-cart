@@ -12,7 +12,7 @@ function Cart() {
 	const location = useLocation();
 
 	useEffect(() => {
-		console.log(productsInCart);
+		//console.log(productsInCart);
 
 		if (productsInCart.length !== 0) {
 			let tempAmount = 0;
