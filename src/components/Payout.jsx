@@ -1,15 +1,44 @@
 import React, { useState } from "react";
 import { useOutletContext } from "react-router-dom";
 import "../styles/payout.css";
+import "../styles/errorPage.css";
 
 function Payout() {
 	const [amount, setAmount] = useOutletContext();
+	const [paying, setPaying] = useState(1);
+
+	function sendingPayment() {
+		Math.floor(Math.random() * 2) === 1 ? setPaying(2) : setPaying(0);
+	}
+
+	function ErrorPayment() {
+		return (
+			<div className="error-main">
+				<section className="error-container">
+					<h2>Couldn&apos;t process your Payment!</h2>
+					<p>Please retry in 5 minutes</p>
+				</section>
+			</div>
+		);
+	}
+
+	function CompletedPayment() {
+		return (
+			<div className="confermation-main">
+				<section className="confermation-container">
+					<h2>Processed your Payment!</h2>
+					<p>We will send you shortly an Email</p>
+					<p>Also, check your Spam folder!</p>
+				</section>
+			</div>
+		);
+	}
 
 	return (
 		<section>
 			{amount === 0 ? (
 				<p>Add something to the Cart before going to the Payment Section!</p>
-			) : (
+			) : paying === 1 ? (
 				<div>
 					<h4>Total Final Price: {Math.round(amount * 100) / 100} €</h4>
 
@@ -19,7 +48,7 @@ function Payout() {
 						<div className="google-pay-container">
 							<h5>Google Pay</h5>
 
-							<button className="google-pay-button">
+							<button className="google-pay-button" onClick={sendingPayment}>
 								<img src="/shop/payout/googlePay.svg" alt="Pay now with Google Pay" width="90px" height="auto" />
 							</button>
 						</div>
@@ -37,7 +66,7 @@ function Payout() {
 								/>
 							</div>
 
-							<form className="credit-form">
+							<form className="credit-form" onSubmit={sendingPayment}>
 								<label htmlFor="credit-name">Name and surname *</label>
 								<input type="text" id="credit-name" name="credit-name" placeholder="Marco Rigato" required />
 								<label htmlFor="credit-number">Card Number *</label>
@@ -52,6 +81,10 @@ function Payout() {
 						</div>
 					</div>
 				</div>
+			) : paying === 0 ? (
+				<ErrorPayment />
+			) : (
+				<CompletedPayment />
 			)}
 		</section>
 	);
