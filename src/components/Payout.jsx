@@ -17,6 +17,7 @@ function Payout() {
 				<section className="error-container">
 					<h2>Couldn&apos;t process your Payment!</h2>
 					<p>Please retry in 5 minutes</p>
+					<p>If it still doesn&apos;t work, call your Bank!</p>
 				</section>
 			</div>
 		);
