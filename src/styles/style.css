@@ -87,6 +87,10 @@ a:visited {
 	visibility: hidden;
 }
 
+.less-margin-top {
+	margin-top: -50px;
+}
+
 .rose-color {
 	background-color: rgb(255, 245, 255);
 }
