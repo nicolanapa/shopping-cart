@@ -49,7 +49,8 @@ function Cart() {
 	}
 
 	window.onload = () => {
-		console.log(location.pathname);
+		//console.log(location.pathname);
+
 		if (location.pathname === "/shop/cart/payout" || location.pathname === "/shop/cart/payout/") {
 			navigateToCart();
 		}
