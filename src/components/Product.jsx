@@ -9,15 +9,6 @@ function Product({ allProductsInCart = [], product, cart = "" }) {
 	function changeAmountOfProductInCart(indexOfProductInCart) {
 		let tempProductsInCart = productsInCart.slice(0);
 
-		/*console.log(
-			"TEMP AMOUNT",
-			tempProductsInCart[indexOfProductInCart].amount,
-			"LOCAL AMOUNT",
-			localAmountOfProduct,
-			"AMOUNT IN ICON CART",
-			amountOfProductsInIconCart
-		);*/
-
 		tempProductsInCart[indexOfProductInCart].amount += localAmountOfProduct;
 
 		setProductsInCart(tempProductsInCart);
